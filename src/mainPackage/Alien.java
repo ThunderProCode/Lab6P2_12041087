@@ -91,4 +91,11 @@ public class Alien {
         this.name = name;
     }
 
+    @Override
+    public String toString() {
+        return "Alien{" + "name=" + name + ", raza=" + raza + ", age=" + age + ", menace=" + menace + '}';
+    }
+    
+    
+
 }

@@ -12,11 +12,20 @@ public class Main {
     
     public static void main(String[] args) {
         
-        MainScreen.setVisible(true);
+        init();
     }
 
     public static void init(){
         
+        Planeta marte = new Planeta("Marte",false,-20,300);
+        Planeta tierra = new Planeta("Tierra",true,50,200);
+        
+        addPlanet(marte);
+        addPlanet(tierra);
+        
+        MainScreen.updatePlanetComboBoxes();
+        
+        MainScreen.setVisible(true);
     }
     
    //--------------------------------------------------------------------------- 
@@ -28,6 +37,24 @@ public class Main {
             }
         }
         return null;
+    }
+    
+    public static Raza getRaceByName(String name){
+        for (Raza raza : razas) {
+            if(raza.getName().equals(name)){
+                return raza;
+            }
+        }
+        return null;
+    }
+    
+    public static boolean alienExists(String name){
+        for (Alien alien : aliens) {
+            if(alien.getName().equals(alien)){
+                return true;
+            }
+        }
+        return false;
     }
     
     public static boolean raceExists(String name){
@@ -82,11 +109,10 @@ public class Main {
     }
     
     public static void addPlanet(Planeta planet){
-        
-        DefaultListModel demoList = new DefaultListModel();
-        demoList.addElement(planet.getName());
-        MainScreen.explorerAvailablePlanets.setModel(demoList);        
-        MainScreen.pathfinderAvailablePlanets.setModel(demoList);
+       
+        MainScreen.availablePlanetsListModel.addElement(planet.getName());
+        MainScreen.explorerAvailablePlanets.setModel(MainScreen.availablePlanetsListModel);        
+        MainScreen.pathfinderAvailablePlanets.setModel(MainScreen.availablePlanetsListModel);
         Main.planets.add(planet);
         
     }

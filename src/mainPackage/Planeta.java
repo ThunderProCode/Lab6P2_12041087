@@ -101,4 +101,15 @@ public class Planeta {
         this.name = name;
     }
 
+    public void addAlien(Alien alien){
+        this.aliens.add(alien);
+    }
+
+    @Override
+    public String toString() {
+        return "Planeta{" + "name=" + name + ", water=" + water + ", temp=" + temp + ", aliens=" + aliens + ", size=" + size + '}';
+    }
+    
+    
+    
 }

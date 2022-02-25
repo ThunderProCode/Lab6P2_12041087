@@ -12,11 +12,11 @@ import mainPackage.Raza;
  *
  * @author ThunderKnight
  */
-public class Cazadores extends Alien {
+public class Cazador extends Alien {
     
     int huntedHumans;
 
-    public Cazadores(int huntedHumans, String name, Raza raza, int age, boolean menace) {
+    public Cazador(int huntedHumans, String name, Raza raza, int age, boolean menace) {
         super(name, raza, age, menace);
         this.huntedHumans = huntedHumans;
     }
