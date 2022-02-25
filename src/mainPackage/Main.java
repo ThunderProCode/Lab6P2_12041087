@@ -1,21 +1,42 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package mainPackage;
 
-/**
- *
- * @author ThunderKnight
- */
+import java.util.ArrayList;
+
 public class Main {
 
-    /**
-     * @param args the command line arguments
-     */
+    ArrayList<Planeta> planets = new ArrayList();
+    ArrayList<Alien> aliens = new ArrayList();
+    
+    public static MainScreen MainScreen = new MainScreen();
+    
     public static void main(String[] args) {
-        // TODO code application logic here
+        MainScreen.setVisible(true);
+    }
+
+   //--------------------------------------------------------------------------- 
+    
+    public ArrayList<Planeta> getPlanets() {
+        return planets;
+    }
+
+    public void setPlanets(ArrayList<Planeta> planets) {
+        this.planets = planets;
+    }
+
+    public ArrayList<Alien> getAliens() {
+        return aliens;
+    }
+
+    public void setAliens(ArrayList<Alien> aliens) {
+        this.aliens = aliens;
+    }
+    
+    public void addPlanet(Planeta planet){
+        this.planets.add(planet);
+    }
+    
+    public void addAlien(Alien alien){
+        this.aliens.add(alien);
     }
     
 }
