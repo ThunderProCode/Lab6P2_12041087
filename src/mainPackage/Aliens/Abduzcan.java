@@ -5,10 +5,22 @@
  */
 package mainPackage.Aliens;
 
+import java.util.ArrayList;
+import mainPackage.Alien;
+import mainPackage.Planeta;
+import mainPackage.Raza;
+
 /**
  *
  * @author ThunderKnight
  */
-public class Abduzcan {
+public class Abduzcan extends Alien {
+
+   int abductedAnimals;
+
+    public Abduzcan(int abductedAnimals, String name, Raza raza, int age, boolean menace) {
+        super(name, raza, age, menace);
+        this.abductedAnimals = abductedAnimals;
+    }
     
 }

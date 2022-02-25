@@ -4,11 +4,11 @@ package mainPackage;
 public class Alien {
     
     private String name;
-    private String raza;
+    private Raza raza;
     private int age;
     private boolean menace;
 
-    public Alien(String name, String raza, int age, boolean menace) {
+    public Alien(String name, Raza raza, int age, boolean menace) {
         this.name = name;
         this.raza = raza;
         this.age = age;
@@ -58,7 +58,7 @@ public class Alien {
      *
      * @return the value of raza
      */
-    public String getRaza() {
+    public Raza getRaza() {
         return raza;
     }
 
@@ -67,7 +67,7 @@ public class Alien {
      *
      * @param raza new value of raza
      */
-    public void setRaza(String raza) {
+    public void setRaza(Raza raza) {
         this.raza = raza;
     }
 

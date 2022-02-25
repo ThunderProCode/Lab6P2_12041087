@@ -5,10 +5,20 @@
  */
 package mainPackage.Aliens;
 
+import mainPackage.Alien;
+import mainPackage.Raza;
+
 /**
  *
  * @author ThunderKnight
  */
-public class Cazadores {
+public class Cazadores extends Alien {
+    
+    int huntedHumans;
+
+    public Cazadores(int huntedHumans, String name, Raza raza, int age, boolean menace) {
+        super(name, raza, age, menace);
+        this.huntedHumans = huntedHumans;
+    }
     
 }

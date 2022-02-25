@@ -5,10 +5,21 @@
  */
 package mainPackage.Aliens;
 
+import java.util.ArrayList;
+import mainPackage.Alien;
+import mainPackage.Planeta;
+import mainPackage.Raza;
+
 /**
  *
  * @author ThunderKnight
  */
-public class Conquistadores {
+public class Conquistadores extends Alien {
+    
+    ArrayList<Planeta> conqueredPlanets = new ArrayList();
+
+    public Conquistadores(String name, Raza raza, int age, boolean menace) {
+        super(name, raza, age, menace);
+    }
     
 }
