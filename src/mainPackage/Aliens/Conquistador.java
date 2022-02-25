@@ -14,12 +14,23 @@ import mainPackage.Raza;
  *
  * @author ThunderKnight
  */
-public class Conquistadores extends Alien {
+public class Conquistador extends Alien {
     
     ArrayList<Planeta> conqueredPlanets = new ArrayList();
 
-    public Conquistadores(String name, Raza raza, int age, boolean menace) {
+    public Conquistador(String name, Raza raza, int age, boolean menace, ArrayList<Planeta> conqueredPlanets ) {
         super(name, raza, age, menace);
+        this.conqueredPlanets = conqueredPlanets;
     }
+
+    public ArrayList<Planeta> getConqueredPlanets() {
+        return conqueredPlanets;
+    }
+
+    public void setConqueredPlanets(ArrayList<Planeta> conqueredPlanets) {
+        this.conqueredPlanets = conqueredPlanets;
+    }
+    
+    
     
 }

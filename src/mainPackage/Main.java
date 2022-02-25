@@ -111,6 +111,7 @@ public class Main {
     public static void addPlanet(Planeta planet){
        
         MainScreen.availablePlanetsListModel.addElement(planet.getName());
+        MainScreen.pathfinderAvailablePlanetsListModel.addElement(planet.getName());;
         MainScreen.explorerAvailablePlanets.setModel(MainScreen.availablePlanetsListModel);        
         MainScreen.pathfinderAvailablePlanets.setModel(MainScreen.availablePlanetsListModel);
         Main.planets.add(planet);
