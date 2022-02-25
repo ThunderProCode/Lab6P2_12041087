@@ -3,19 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package lab6p2_hectoracosta;
+package mainPackage.Aliens;
 
 /**
  *
  * @author ThunderKnight
  */
-public class Lab6P2_HectorAcosta {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
-    }
+public class Conquistadores {
     
 }
