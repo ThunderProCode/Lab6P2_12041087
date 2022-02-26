@@ -93,7 +93,7 @@ public class Alien {
 
     @Override
     public String toString() {
-        return "Alien{" + "name=" + name + ", raza=" + raza + ", age=" + age + ", menace=" + menace + '}';
+        return "name=" + name + ", raza=" + raza + ", age=" + age;
     }
     
     

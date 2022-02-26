@@ -2,12 +2,16 @@ package mainPackage;
 
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
+import mainPackage.Aliens.Cazador;
 
 public class Main {
 
     private static  ArrayList<Planeta> planets = new ArrayList();
     private static ArrayList<Alien> aliens = new ArrayList();
     public static MainScreen MainScreen = new MainScreen();
+    public static EditScreen EditScreen = new EditScreen();
+    public static Alien SelectedAlien;
+    
     private static ArrayList<Raza> razas = new ArrayList();
     
     public static void main(String[] args) {
@@ -23,13 +27,59 @@ public class Main {
         addPlanet(marte);
         addPlanet(tierra);
         
+        Raza newRace = new Raza(tierra,"Terricolas");
+        Raza newRace1 = new Raza(marte,"Marsianos");
+
+        razas.add(newRace);
+        razas.add(newRace1);
+        
+        Cazador newCazador = new Cazador(10,"Hector",newRace,19,false);
+        Cazador newCazador1 = new Cazador(10,"Rita",newRace1,17,true);
+
+        aliens.add(newCazador1);
+        aliens.add(newCazador);
+        
+        tierra.addAlien(newCazador);
+        marte.addAlien(newCazador1);
+        
+        MainScreen.tree.setEditable(true);
+        MainScreen.tree.setComponentPopupMenu( MainScreen.getPopUpMenu() );
+        MainScreen.tree.addMouseListener( MainScreen.getMouseListener() );
+        
         MainScreen.updatePlanetComboBoxes();
+        MainScreen.updateRaceComboBoxes();
         
         MainScreen.setVisible(true);
     }
     
+    public static void initEditScreen(Alien alien){
+        EditScreen.jTextField1.setText(alien.getName());
+        EditScreen.jSpinner1.setValue(alien.getAge());
+        EditScreen.jCheckBox1.setSelected(alien.isMenace());
+        EditScreen.jComboBox1.setSelectedItem(alien.getRaza().getName());
+    }
+    
    //--------------------------------------------------------------------------- 
 
+    public static Alien getSelectedAlien() {
+        return SelectedAlien;
+    }
+
+    public static void setSelectedAlien(Alien SelectedAlien) {
+        Main.SelectedAlien = SelectedAlien;
+    }
+
+    
+    
+     public static Alien getAlienByName(String name){
+        for (Alien alien : aliens) {
+            if(alien.getName().equals(name)){
+                return alien;
+            }
+        }
+        return null;
+    }
+    
     public static Planeta getPlanetByName(String name){
         for (Planeta planet : planets) {
             if(planet.getName().equals(name)){

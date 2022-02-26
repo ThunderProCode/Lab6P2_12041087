@@ -3,7 +3,9 @@ package mainPackage;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
@@ -1043,25 +1045,34 @@ public class MainScreen extends javax.swing.JFrame {
 
     public JPopupMenu getPopUpMenu() {
         JPopupMenu menu = new JPopupMenu();
-        JMenuItem item = new JMenuItem("edit");
+        JMenuItem item = new JMenuItem("Editar");
         item.addActionListener(getEditActionListener());
         menu.add(item);
 
-        JMenuItem item2 = new JMenuItem("add");
+        JMenuItem item2 = new JMenuItem("Eliminar");
         item2.addActionListener(getAddActionListener());
         menu.add(item2);
 
+        JMenuItem item3 = new JMenuItem("Listar");
+        item3.addActionListener(getListActionListener());
+        menu.add(item3);
+        
     return menu;
+}
+    
+    public ActionListener getListActionListener() {
+    return (ActionEvent arg0) -> {
+        if(selectedNode != null){
+            Alien alien = Main.getAlienByName(selectedNode.toString());
+            JOptionPane.showMessageDialog(this, alien);
+        }
+    };
 }
     
     public ActionListener getAddActionListener() {
     return (ActionEvent arg0) -> {
         if(selectedNode != null){
-            System.out.println("pressed" + selectedNode);
-            DefaultMutableTreeNode n = new DefaultMutableTreeNode("added");
-            selectedNode.add(n);
-            tree.repaint();
-            tree.updateUI();
+            System.out.println("xd");
         }
     };
 }
@@ -1072,25 +1083,37 @@ public class MainScreen extends javax.swing.JFrame {
         @Override
         public void actionPerformed(ActionEvent arg0) {
             if(selectedNode != null){
-                System.out.println("pressed" + selectedNode);
+                Main.setSelectedAlien(Main.getAlienByName(selectedNode.toString()));
+                Main.initEditScreen(Main.getAlienByName(selectedNode.toString()));
+                Main.EditScreen.setVisible(true);
             }
         }
     };
 }
     
     private void treeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_treeMouseClicked
-        
-        
-        if(evt.getButton() == MouseEvent.BUTTON3){
-            TreePath pathForLocation = tree.getPathForLocation(evt.getPoint().x, evt.getPoint().y);
-            if (pathForLocation != null) {
-                 selectedNode = (DefaultMutableTreeNode) pathForLocation.getLastPathComponent();  
-            }else{
-                selectedNode = null;
-            }
-        }
+
     }//GEN-LAST:event_treeMouseClicked
 
+    
+    public MouseListener getMouseListener() {
+    return new MouseAdapter() {
+
+        @Override
+        public void mousePressed(MouseEvent arg0) {
+            if(arg0.getButton() == MouseEvent.BUTTON3){
+                TreePath pathForLocation = tree.getPathForLocation(arg0.getPoint().x, arg0.getPoint().y);
+                if(pathForLocation != null){
+                    selectedNode = (DefaultMutableTreeNode) pathForLocation.getLastPathComponent();
+                } else{
+                    selectedNode = null;
+                }
+
+            }
+            super.mousePressed(arg0);
+        }
+    };
+}
     
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -1160,12 +1183,14 @@ public class MainScreen extends javax.swing.JFrame {
         hunterRaceInput.removeAllItems();
         abducerRaceInput.removeAllItems();
         pathfinderRaceInput.removeAllItems();
+        Main.EditScreen.jComboBox1.removeAllItems();
         
         for (Raza raza : Main.getRazas()) {
             explorerRaceInput.addItem(raza.getName());
             hunterRaceInput.addItem(raza.getName());
             abducerRaceInput.addItem(raza.getName());
             pathfinderRaceInput.addItem(raza.getName());
+             Main.EditScreen.jComboBox1.addItem(raza.getName());
         }
         
     }

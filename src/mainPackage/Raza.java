@@ -41,5 +41,10 @@ public class Raza {
         this.name = name;
     }
 
+    @Override
+    public String toString() {
+        return "mainPlanet=" + mainPlanet.toString() + ", name=" + name;
+    }
+
     
 }

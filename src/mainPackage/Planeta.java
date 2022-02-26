@@ -107,7 +107,7 @@ public class Planeta {
 
     @Override
     public String toString() {
-        return "Planeta{" + "name=" + name + ", water=" + water + ", temp=" + temp + ", aliens=" + aliens + ", size=" + size + '}';
+        return "name=" + name + ", temp=" + temp + ", aliens=" + aliens + ", size=" + size;
     }
     
     
