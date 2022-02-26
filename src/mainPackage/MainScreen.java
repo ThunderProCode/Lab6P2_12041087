@@ -338,16 +338,13 @@ public class MainScreen extends javax.swing.JFrame {
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.LEADING))
-                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel11)
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addComponent(jLabel10)
                                 .addGap(18, 18, 18)
                                 .addComponent(explorerAgeInput, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(56, 56, 56)
+                        .addGap(56, 115, Short.MAX_VALUE)
                         .addComponent(explorerMenaceInput)
                         .addGap(45, 45, 45))
                     .addComponent(explorerFavPlanetInput, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -463,6 +460,15 @@ public class MainScreen extends javax.swing.JFrame {
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel16))
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addGap(164, 164, 164)
+                                .addComponent(jLabel14)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(hunterNameInput)
@@ -480,19 +486,7 @@ public class MainScreen extends javax.swing.JFrame {
                                 .addComponent(hunterAgeInput, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 123, Short.MAX_VALUE)
                                 .addComponent(hunterMenaceInput)
-                                .addGap(37, 37, 37))))
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel6Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel16))
-                            .addGroup(jPanel6Layout.createSequentialGroup()
-                                .addGap(164, 164, 164)
-                                .addComponent(jLabel14)))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGap(37, 37, 37))
                             .addComponent(hunterPlanetInput, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel6Layout.createSequentialGroup()
                                 .addComponent(jLabel32)
@@ -818,18 +812,21 @@ public class MainScreen extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane5)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 595, Short.MAX_VALUE)
+                        .addContainerGap())
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(treePlanets, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(177, 177, 177)
-                                .addComponent(jButton11)))))
-                .addContainerGap(235, Short.MAX_VALUE))
+                                .addComponent(jButton11)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jScrollPane6)
+                                .addContainerGap())))))
         );
 
         jTabbedPane1.addTab("Arbol", jPanel1);
@@ -861,9 +858,23 @@ public class MainScreen extends javax.swing.JFrame {
         }else{
             JOptionPane.showMessageDialog(this, "Ya existe un planeta con ese nombre");
         }
-        
+        clearCreatePlanet();
     }//GEN-LAST:event_createPlanetBtnActionPerformed
 
+   
+    
+    private void clearCreatePlanet(){
+        planetNameInput.setText("");
+        planetTempInput.setValue(0);
+        planetSizeInput.setValue(0);
+        planetWaterInput.setSelected(false);
+    }
+    
+    private void clearCreateRace(){
+        raceNameInput.setText("");
+    }
+    
+    
     private void createRaceBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createRaceBtnActionPerformed
         String name = raceNameInput.getText();
         
@@ -877,7 +888,7 @@ public class MainScreen extends javax.swing.JFrame {
         }else{
             JOptionPane.showMessageDialog(this, "Ya existe una raza con ese nombre");
         }
-        
+        clearCreateRace();
     }//GEN-LAST:event_createRaceBtnActionPerformed
 
     private void createExplorerBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createExplorerBtnActionPerformed
@@ -901,9 +912,20 @@ public class MainScreen extends javax.swing.JFrame {
         }else{
             JOptionPane.showMessageDialog(this, "Ya existe un alien con ese nombre");
         }
-        
+        clearCreateExplorer();
     }//GEN-LAST:event_createExplorerBtnActionPerformed
 
+    private void clearCreateExplorer(){
+        explorerNameInput.setText("");
+        explorerAgeInput.setValue(0);
+        explorerMenaceInput.setSelected(false);
+        
+        DefaultListModel clearModel = new DefaultListModel();
+
+        explorerFoundPlanetsInput.setModel(clearModel);
+        
+    }
+    
     private void explorerAddPlanetBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_explorerAddPlanetBtnActionPerformed
         
         if (availablePlanetsListModel.size() > 0) {
@@ -961,9 +983,16 @@ public class MainScreen extends javax.swing.JFrame {
         }else{
             JOptionPane.showMessageDialog(this, "Ya existe un alien con ese nombre");
         }
-
+        clearCreateHunter();
     }//GEN-LAST:event_createHunterBtnActionPerformed
 
+    private void clearCreateHunter(){
+        hunterNameInput.setText("");
+        hunterAgeInput.setValue(0);
+        hunterMenaceInput.setSelected(false);
+        hunterHuntedHumansInput.setValue(0);
+    }
+    
     private void createAbducerBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createAbducerBtnActionPerformed
         String name = abducerNameInput.getText();
         
@@ -982,8 +1011,17 @@ public class MainScreen extends javax.swing.JFrame {
         }else{
             JOptionPane.showMessageDialog(this, "Ya existe un alien con ese nombre");
         }
+        
+        clearCreateAbduzcan();
     }//GEN-LAST:event_createAbducerBtnActionPerformed
 
+    private void clearCreateAbduzcan(){
+        abducerNameInput.setText("");
+        abducerAgeInput.setValue(0);
+        abducerMenaceInput.setSelected(false);
+        abducedAnimalsInput.setValue(0);
+    }
+    
     private void createPathfinderBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createPathfinderBtnActionPerformed
         String name = pathfinderNameInput.getText();
        
@@ -1002,8 +1040,18 @@ public class MainScreen extends javax.swing.JFrame {
         }else{
             JOptionPane.showMessageDialog(this, "Ya existe un alien con ese nombre");
         }
+        clearCreateConquistador();
     }//GEN-LAST:event_createPathfinderBtnActionPerformed
 
+    private void clearCreateConquistador(){
+        pathfinderNameInput.setText("");
+        pathFinderAgeInput.setValue(0);
+        pathfinderMenaceInput.setSelected(false);
+        DefaultListModel clearModel = new DefaultListModel();
+
+        pathfinderConqueredPlanetsInput.setModel(clearModel);
+    }
+    
     private void pathfinderAddPlanetBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pathfinderAddPlanetBtnActionPerformed
            
             if(pathfinderAvailablePlanetsListModel.getSize() > 0){
