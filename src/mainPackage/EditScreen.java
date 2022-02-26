@@ -37,7 +37,7 @@ public class EditScreen extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox<>();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setText("Editar Alien");
 
@@ -122,6 +122,7 @@ public class EditScreen extends javax.swing.JFrame {
         Main.SelectedAlien.setAge( (Integer) jSpinner1.getValue() );
         Main.SelectedAlien.setMenace(jCheckBox1.isSelected());
         Main.SelectedAlien.setRaza( Main.getRaceByName( jComboBox1.getSelectedItem().toString() ) );
+        this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     

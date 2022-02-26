@@ -1072,7 +1072,8 @@ public class MainScreen extends javax.swing.JFrame {
     public ActionListener getAddActionListener() {
     return (ActionEvent arg0) -> {
         if(selectedNode != null){
-            System.out.println("xd");
+            DefaultTreeModel model = (DefaultTreeModel) tree.getModel();
+            model.removeNodeFromParent(selectedNode);
         }
     };
 }
